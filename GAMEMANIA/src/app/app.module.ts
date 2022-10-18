@@ -8,9 +8,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { ProdutoComponent } from './views/produto/produto.component';
+import { HttpClientModule } from "@angular/common/http/";
 
 @NgModule({
   declarations: [
+    HttpClientModule,
     AppComponent,
     FooterComponent,
     HeaderComponent,

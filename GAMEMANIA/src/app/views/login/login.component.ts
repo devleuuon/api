@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { User } from 'src/app/models/user';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor( private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +18,16 @@ export class LoginComponent implements OnInit {
 
   receberDados() {
     console.log (this.UserModel)
-  }
 
+    this.userService.logarUsuario(this.UserModel).subscribe({
+    next: (response) => {
+      console.log ("deu certo");
+      console.log("response");
+    },
+    error: (err) => {
+      console.log ("deu errado");
+      console.log("err");
+    },
+  })
+}
 }
